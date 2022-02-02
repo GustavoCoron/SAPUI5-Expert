@@ -1,8 +1,29 @@
 <mvc:View controllerName="logaligroup.SAPUI5.controller.App"
-          xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-    <Button text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
-    <Input value="{/recipient/name}"
-           description="Hello {/recipient/name}"
-           valueLiveUpdate="true"
-           width="60%"></Input>
+          xmlns="sap.m" 
+          xmlns:mvc="sap.ui.core.mvc"
+          displayBlock="true">
+    <!-- Shell :  Permite modificar el acpecto de la aplicacion,  cuando la aplicacion cuando la aplicacion se va a ejecutar en los dispositivos-->
+    <Shell>
+        <App>
+            <pages>
+                <Page title="{i18n>appTitle}">
+                    <content>
+                        <!--    Panel : Agrupa los elementos de la interfaz de usuario
+                                headerText : Añade un texto en la cabecera del panel
+                        -->
+                        <Panel headerText="{i18n>helloPanel}" class="sapUiResponsiveMargin" width="auto">
+                            <!--    Agregar otro content es una de las mejores formas para tener el contenido-->
+                            <content>
+                                <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd"/>
+                                <Input value="{/recipient/name}"
+                                    valueLiveUpdate="true"
+                                    width="60%"/>
+                                <Text text="Hello {/recipient/name}" class="sapUiSmallMargin boldElements sapthemeHighlight-asColor"/>
+                            </content>
+                        </Panel>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>
